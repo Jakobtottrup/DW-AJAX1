@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit quiz</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h1>Enter your name to edit your quiz:</h1>
+
+    <form>
+        <input id="e_author" type="text" placeholder="Your Name">
+    </form>
+    <br>
+    <button id="getAuthor">Find Quizzes</button>
+    <br><br>
+    <hr>
+    <br><br>
+    <div id="output"></div>
+
+</div>
+</body>
+
+<script>
+    $("#getAuthor").click(function () {
+        let stored = JSON.parse(localStorage.getItem("quizzes"));
+
+        let author = $("#e_author").val().toLowerCase();
+
+        function findQuizzes() {
+            return stored.filter(
+                function (stored) {
+                    return stored.author == author
+                }
+            );
+        }
+
+        let quizzes = findQuizzes(author);
+
+        /*       $("#output").innerHTML = quizzes[0];
+
+                console.log(quizzes);*/
+
+        for (let i = 0; i < quizzes.length; i++) {
+            console.log(quizzes[i].title);
+            $("#output").append("<button>" + quizzes[i].title + "</button>");
+        }
+    });
+
+
+</script>
+</html>

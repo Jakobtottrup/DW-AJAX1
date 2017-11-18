@@ -1,0 +1,56 @@
+Story cards for the "The quiz portal"
+=====================================
+
+- story1
+	Quiz creator "Alex" creates a quiz. 
+	A quiz has 3 questions and 3 choices per question in all. Each choice has points associated to it (0 or more) that will
+	be used to compute the total with a player will try to solve the quiz.
+	E.g. 
+		q1 - "What is 1+2?"
+			c1 - "12" gives 0 points
+			c2 - "3" gives 5 points
+			c3 - "III" gives 1 points
+		q2 - "Which one of these animals is a mammal?"
+			c1 - "dog" gives 3 points
+			c2 - "penguin" gives 0 points
+			c3 - "kangaroo" gives 1 points
+		q3 - "1/1 = ?"
+			c1 - "0" gives -100 points
+			c2 - "1" gives 5 points
+			c3 - "impossible" gives 0 points
+
+	After defining the quiz Alex saves her new quiz with a title, e.g. "Banana in Pajamas".
+
+- story2
+	The quiz portal supports multiple users. Quiz creator "Billy" creates a quiz. (like Alex)
+	After defining the quiz Billy saves his new quiz with a title, e.g. "Banana in Pajamas". 
+	And the quiz does not get confused with any other quiz with the same title saved by other creators.
+
+- story3
+	Quiz creator Alex opens an existing a quiz: the quiz is selected by title. Alex can only see her quizzes, not Billy's.
+	Alex changes one of the choices for question 2 and saves again with the same title.
+
+- story4
+	Quiz player Charlie selects an existing a quiz by specifying the name of the creator and the title.
+	He then plays the quiz and get a score calculated and visualized.
+
+- story5animation
+	Quiz player Charlie is "playing" a quiz. An animation makes the first question appear.
+   	When Charlie goes to the second question, another animation removes the first from the page and the second question appears.
+
+- story5timer
+	Quiz player Charlie is "playing" a quiz. 
+	A timer is displayed at the top of the page so Charlie can see how long he is taking to play the whole quiz. 
+	The timer started at 0:00 when the quiz began and it changes in real-time while Charlie plays.
+	When he gets his score calculated and visualized, the time it took to complete the quiz is also desplayed in minutes and seconds.
+
+
+- story6
+	Quiz creator "Alex" creates a quiz. She decides that the background color for this quiz will be pink.
+        She defines the 3 questions and 3 choices per question, each with its points. 
+	Alex saves the quiz with the title "ABC".
+	Charlie opens the quiz by specifying that it is by Alex and its title is "ABC". The quiz page has a pink background.
+
+- story7
+	Quiz player Charlie is so happy he got a high score solving a quiz, that he wants to brag about it on FB.
+	He presses a button and shares/brags on his FB timeline.

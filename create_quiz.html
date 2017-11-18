@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz creation</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <h1>Enter your quiz details below</h1>
+
+
+    <form id="quiz_form" action="">
+        <input id="author" type="text" placeholder="your name">
+        <br>
+        <br>
+        <hr>
+        <input id="title" type="text" placeholder="quiz title">
+        <br><br>
+        <hr>
+
+        <h2>How many questions does your quiz contain?</h2>
+        <br>
+        <input id="num_questions" name="num_questions" type="number">
+        <br>
+
+    </form>
+    <button id="create_questions">Create Questions</button>
+    <button id="save_btn" style="display: none;">Save</button>
+    <footer>
+        <br><br><br>
+        <a href="index.html">Return to Index</a>
+    </footer>
+</div>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        let stored = JSON.parse(localStorage.getItem("quizzes"));
+        let quizzes;
+        console.log(stored);
+
+        $("#create_questions").click(function () {
+            const num_questions = $("#num_questions").val();
+            $(this).css("display", "none");
+            $("#save_btn").css("display", "block");
+            for (let i = 1; i <= num_questions; i++) {
+                $("#quiz_form").append("<input id='q" + i + "' placeholder='Question" + i + "'><br>");
+                for (let answer = 1; answer <= 3; answer++) {
+                    $("#quiz_form").append("<input class='answer' id='q" + i + "a" + answer + "' placeholder='Answer" + answer + "'>" +
+                        "<input type='number' id='q" + i + "a" + answer + "_points' placeholder='Points'>" +
+                        "<br>");
+                }
+            }
+        });
+
+        $('#save_btn').click(function () {
+            const num_questions = $("#num_questions").val();
+            const author = $("#author").val().toLowerCase();
+            const title = $("#title").val().toLowerCase();
+            let authors;
+            if (stored != null) {
+                authors = stored.map(s => s.author + s.title);
+            }
+            if (authors != (author + title)) {
+                quizzes = stored === null ? [] : stored;
+                const data = {
+                    author: author,
+                    title: title,
+                    questions: {}
+                };
+                for (let i = 1; i <= num_questions; i++) {
+                    data.questions["question" + i] = {};
+                    data.questions["question" + i]["question"] = $(`#q${i}`).val();
+                    for (let j = 1; j <= 3; j++) {
+                        data.questions["question" + i]["answer" + j] = {};
+                        data.questions["question" + i]["answer" + j]["answer"] = $(`#q${i}a${j}`).val();
+                        data.questions["question" + i]["answer" + j]["points"] = $(`#q${i}a${j}_points`).val();
+                    }
+                }
+                quizzes.push(data);
+                localStorage.setItem("quizzes", JSON.stringify(quizzes));
+                alert("Quiz saved successfully!");
+            } else{
+                alert("A quiz by this author with this title already exists!");
+
+            }
+        });
+
+
+    });
+</script>
+</html>
