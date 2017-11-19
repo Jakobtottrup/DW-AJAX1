@@ -1,53 +1,217 @@
-{
-  "data": {
-    "author": "asdfa",
-    "title": "asdf",
-    "questions": {
-      "question1": {
-        "question": "q1",
-        "answer1": {
-          "answer": "a1",
-          "points": "1"
-        },
-        "answer2": {
-          "answer": "a2",
-          "points": "2"
-        },
-        "answer3": {
-          "answer": "a3",
-          "points": "3"
-        }
+[
+  {
+    "author": "jakob",
+    "title": "quiz",
+    "questions": [
+      {
+        "question": "What is 1+2?",
+        "answers": [
+          {
+            "key": "12",
+            "val": "0"
+          },
+          {
+            "key": "3",
+            "val": "5"
+          },
+          {
+            "key": "III",
+            "val": "1"
+          }
+        ]
       },
-      "question2": {
-        "question": "q2",
-        "answer1": {
-          "answer": "a1",
-          "points": "1"
-        },
-        "answer2": {
-          "answer": "a2",
-          "points": "2"
-        },
-        "answer3": {
-          "answer": "a3",
-          "points": "3"
-        }
+      {
+        "question": "Which animal is a mammal?",
+        "answers": [
+          {
+            "key": "Dog",
+            "val": "5"
+          },
+          {
+            "key": "Penguin",
+            "val": "0"
+          },
+          {
+            "key": "Kangarooooooooo",
+            "val": "1"
+          }
+        ]
       },
-      "question3": {
-        "question": "q3",
-        "answer1": {
-          "answer": "a1",
-          "points": "1"
-        },
-        "answer2": {
-          "answer": "a2",
-          "points": "2"
-        },
-        "answer3": {
-          "answer": "a3",
-          "points": "3"
-        }
+      {
+        "question": "1 / 1 = ?",
+        "answers": [
+          {
+            "key": "0",
+            "val": "-10"
+          },
+          {
+            "key": "1",
+            "val": "5"
+          },
+          {
+            "key": "Impossible",
+            "val": "0"
+          }
+        ]
       }
-    }
+    ],
+    "color": "#ee69e2"
+  },
+  {
+    "author": "jakob",
+    "title": "quiz2",
+    "questions": [
+      {
+        "question": "Question1",
+        "answers": [
+          {
+            "key": "Answer1",
+            "val": "1"
+          },
+          {
+            "key": "Answer2",
+            "val": "2"
+          },
+          {
+            "key": "Answer3",
+            "val": "3"
+          }
+        ]
+      },
+      {
+        "question": "Question2",
+        "answers": [
+          {
+            "key": "Answer1",
+            "val": "11"
+          },
+          {
+            "key": "Answer2",
+            "val": "22"
+          },
+          {
+            "key": "Answer3",
+            "val": "33"
+          }
+        ]
+      },
+      {
+        "question": "Question3",
+        "answers": [
+          {
+            "key": "Answer1",
+            "val": "111"
+          },
+          {
+            "key": "Answer2",
+            "val": "222"
+          },
+          {
+            "key": "Answer3",
+            "val": "333"
+          }
+        ]
+      }
+    ],
+    "color": "#65e596"
+  },
+  {
+    "author": "jakob",
+    "title": "test",
+    "questions": [
+      {
+        "question": "1",
+        "answers": [
+          {
+            "key": "1",
+            "val": "1"
+          },
+          {
+            "key": "1",
+            "val": "1"
+          },
+          {
+            "key": "1",
+            "val": "1"
+          }
+        ]
+      },
+      {
+        "question": "2",
+        "answers": [
+          {
+            "key": "2",
+            "val": "2"
+          },
+          {
+            "key": "2",
+            "val": "2"
+          },
+          {
+            "key": "2",
+            "val": "2"
+          }
+        ]
+      }
+    ],
+    "color": "#65e596"
+  },
+  {
+    "author": "alex",
+    "title": "abc",
+    "questions": [
+      {
+        "question": "What is the meaning of life?",
+        "answers": [
+          {
+            "key": "42",
+            "val": "42"
+          },
+          {
+            "key": "food",
+            "val": "21"
+          },
+          {
+            "key": "money",
+            "val": "500"
+          }
+        ]
+      },
+      {
+        "question": "Should Jakob get 12?",
+        "answers": [
+          {
+            "key": "Yes",
+            "val": "50000"
+          },
+          {
+            "key": "Probably not",
+            "val": "-1000"
+          },
+          {
+            "key": "Never",
+            "val": "-1000000"
+          }
+        ]
+      },
+      {
+        "question": "How many hours did this platform take to create?",
+        "answers": [
+          {
+            "key": "Under 2 hours",
+            "val": "-100"
+          },
+          {
+            "key": "About 8 hours",
+            "val": "100"
+          },
+          {
+            "key": "About 24 hours",
+            "val": "5"
+          }
+        ]
+      }
+    ],
+    "color": "#e64deb"
   }
-}
+]

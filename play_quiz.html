@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play a quiz</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Enter a quiz creators name:</h1>
+    <p>
+        <a href="index.html">Return to index</a>
+    </p>
+    <input type="text" placeholder="Name" id="get_creator">
+
+    <button id="load_btn" class="btn btn-primary">Load Quizzes</button>
+    <hr>
+    <div id="output">
+        <h1 class="hidden" style="display: none;">Select a quiz to play!</h1>
+        <br>
+    </div>
+    <div>
+        <button class="btn-success btn" id="submit_btn" style="display: none">Submit</button>
+    </div>
+</div>
+</body>
+<script  src="js/play_quiz.js"></script>
+<script>
+
+</script>
+</html>

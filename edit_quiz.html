@@ -15,6 +15,8 @@
 <body>
 <div class="container">
     <h1>Enter your name to edit your quiz:</h1>
+    <p><a href="index.html">Return to front page</a></p>
+
 
     <form>
         <input id="e_author" type="text" placeholder="Your Name">
@@ -24,37 +26,62 @@
     <br><br>
     <hr>
     <br><br>
-    <div id="output"></div>
+    <div id="output">
+        <form id="quiz_form"></form>
+    </div>
 
 </div>
 </body>
 
+<script src="js/edit_quiz.js"></script>
 <script>
-    $("#getAuthor").click(function () {
+    /*$("#getAuthor").click(function () {
+
         let stored = JSON.parse(localStorage.getItem("quizzes"));
-
         let author = $("#e_author").val().toLowerCase();
+        let quiz_to_edit = {};
 
-        function findQuizzes() {
+        //console.log(stored);
+
+        function findQuizzesByAuthor() {
             return stored.filter(
                 function (stored) {
                     return stored.author == author
                 }
             );
         }
-
-        let quizzes = findQuizzes(author);
-
-        /*       $("#output").innerHTML = quizzes[0];
-
-                console.log(quizzes);*/
+        let quizzes = findQuizzesByAuthor(author);
 
         for (let i = 0; i < quizzes.length; i++) {
-            console.log(quizzes[i].title);
-            $("#output").append("<button>" + quizzes[i].title + "</button>");
+            $("#output").append("<button class='btn btn-primary edit_quiz'>" + quizzes[i].title + "</button>");
         }
-    });
+        $(".edit_quiz").click(function () {
+            let quiz_title = this.innerHTML;
 
+            function findQuiz() {
+                return quizzes.filter(
+                    function (quizzes) {
+                        return quizzes.title == quiz_title
+                    }
+                )
+            }
+            quiz_to_edit = findQuiz(quiz_title);
+            console.log(quiz_to_edit);
+            for (var i = 0; i < quiz_to_edit["0"].questions.length; i++) {
+                let q = quiz_to_edit[0].questions[i].question;
+                $("#quiz_form").append("<input id='q" + (i + 1) + "' value='" + q + "'><br>");
+                for (let j = 0; j < quiz_to_edit["0"].questions[i].answers.length; j++) {
+                    let a = quiz_to_edit["0"].questions[i].answers[j].key;
+                    let p = quiz_to_edit["0"].questions[i].answers[j].val;
+                    $("#quiz_form").append("<input class='answer' id='q" + i + "a" + j + "' value='" + a + "'>" +
+                        "<input type='number' id='q" + i + "a" + j + "_points' value='" + p + "'>" +
+                        "<br>");
+                }
+            }
+
+        })
+    });
+*/
 
 </script>
 </html>

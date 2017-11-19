@@ -2,3 +2,19 @@
     margin-left: 100px;
     margin-top: 10px;
 }
+button {
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+}
+.points{
+    left: 300px;
+    position: fixed;
+
+}
+.inactive{
+    display: none;
+}
+
+.qblock{
+    border: 1px solid black;
+}

@@ -27,6 +27,12 @@
         <br><br>
         <hr>
 
+        <label for="colorpicker">Choose a background color:</label>
+<!--
+        <input name="Color Picker" type="color" class="colorPicker">
+-->
+        <input type="color" id="colorpicker" name='Color Picker'class="colorPicker" value="">
+
         <h2>How many questions does your quiz contain?</h2>
         <br>
         <input id="num_questions" name="num_questions" type="number">
@@ -42,9 +48,10 @@
 </div>
 
 </body>
+<script src="js/save_quiz.js"></script>
 
 <script>
-    $(document).ready(function () {
+    /*$(document).ready(function () {
         let stored = JSON.parse(localStorage.getItem("quizzes"));
         let quizzes;
         console.log(stored);
@@ -76,27 +83,32 @@
                 const data = {
                     author: author,
                     title: title,
-                    questions: {}
+                    questions: []
                 };
-                for (let i = 1; i <= num_questions; i++) {
-                    data.questions["question" + i] = {};
-                    data.questions["question" + i]["question"] = $(`#q${i}`).val();
-                    for (let j = 1; j <= 3; j++) {
-                        data.questions["question" + i]["answer" + j] = {};
-                        data.questions["question" + i]["answer" + j]["answer"] = $(`#q${i}a${j}`).val();
-                        data.questions["question" + i]["answer" + j]["points"] = $(`#q${i}a${j}_points`).val();
+                for (let i = 0; i < num_questions; i++) {
+                    data.questions[i] = {};
+                    data.questions[i].question = $(`#q${i + 1}`).val();
+                    data.questions[i].answers = [];
+                    for (let j = 0; j < 3; j++) {
+                        //ans = $(`#q${i + 1}a${j + 1}`).val()
+                        data.questions[i].answers[j] = {
+                            key: $(`#q${i + 1}a${j + 1}`).val(),
+                            val: $(`#q${i + 1}a${j + 1}_points`).val()
+                        };
+
                     }
                 }
+                console.log(data);
                 quizzes.push(data);
                 localStorage.setItem("quizzes", JSON.stringify(quizzes));
                 alert("Quiz saved successfully!");
-            } else{
+            } else {
                 alert("A quiz by this author with this title already exists!");
 
             }
         });
 
 
-    });
+    });*/
 </script>
 </html>
