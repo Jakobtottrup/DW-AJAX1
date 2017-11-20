@@ -1,7 +1,6 @@
 $(document).ready(function () {
     let stored = JSON.parse(localStorage.getItem("quizzes"));
     let quizzes;
-    //console.log(stored);
 
 
     $("#create_questions").click(function () {
@@ -40,7 +39,6 @@ $(document).ready(function () {
                 data.questions[i].question = $(`#q${i + 1}`).val();
                 data.questions[i].answers = [];
                 for (let j = 0; j < 3; j++) {
-                    //ans = $(`#q${i + 1}a${j + 1}`).val()
                     data.questions[i].answers[j] = {
                         key: $(`#q${i + 1}a${j + 1}`).val(),
                         val: $(`#q${i + 1}a${j + 1}_points`).val()
@@ -48,7 +46,6 @@ $(document).ready(function () {
 
                 }
             }
-            //console.log(data);
             quizzes.push(data);
             localStorage.setItem("quizzes", JSON.stringify(quizzes));
             alert("Quiz saved successfully!");

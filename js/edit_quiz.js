@@ -1,12 +1,8 @@
 $("#getAuthor").click(function () {
-
     $(this).css("display", "none");
     let stored = JSON.parse(localStorage.getItem("quizzes"));
-    //console.log(stored);
     let author = $("#e_author").val().toLowerCase();
     let quiz_to_edit = {};
-
-    ////console.log(stored);
 
     function findQuizzesByAuthor() {
         return stored.filter(
@@ -17,7 +13,6 @@ $("#getAuthor").click(function () {
     }
 
     let quizzes = findQuizzesByAuthor(author);
-
     for (let i = 0; i < quizzes.length; i++) {
         $("#output").append("<button class='btn btn-primary edit_quiz'>" + quizzes[i].title + "</button>");
     }
@@ -37,7 +32,6 @@ $("#getAuthor").click(function () {
         }
 
         quiz_to_edit = findQuiz(quiz_title);
-        //console.log(quiz_to_edit);
         $("#quiz_form").append("<label for='title_input'>Quiz Title: </label><input id='title_input' value='" + quiz_title + "'><br><hr>");
         $("#quiz_form").append("<label for='color'>Background Color </label><input type='color' id='color' value='" + quiz_to_edit["0"].color + "'><br><hr>");
         for (var i = 0; i < quiz_to_edit["0"].questions.length; i++) {
@@ -54,7 +48,6 @@ $("#getAuthor").click(function () {
 
         $("#output").append("<button class='brn btn-primary' id='save_btn'>Update Quiz</button>");
         $("#save_btn").click(function () {
-            //console.log("save button pushed");
             const num_questions = quiz_to_edit[0].questions.length;
             const author = quiz_to_edit["0"].author;
             const title = quiz_to_edit["0"].title;
@@ -76,7 +69,6 @@ $("#getAuthor").click(function () {
                     data.questions[i].question = $(`#q${i + 1}`).val();
                     data.questions[i].answers = [];
                     for (let j = 0; j < 3; j++) {
-                        //ans = $(`#q${i + 1}a${j + 1}`).val()
                         data.questions[i].answers[j] = {
                             key: $(`#q${i}a${j}`).val(),
                             val: $(`#q${i}a${j}_points`).val()
@@ -87,15 +79,9 @@ $("#getAuthor").click(function () {
 
                 for (let i = 0; i < stored.length; i++) {
                     if ((stored[i].author == author) && (stored[i].title) == title) {
-                        //console.log("Found target quiz: " + stored[i].author + " " + stored[i].title);
-                        //console.log(stored[i]);
                         stored[i] = data;
-                        //console.log(stored[i]);
                     }
-
                 }
-
-                //console.log("Stored after: " + JSON.stringify(stored));
                 localStorage.setItem("quizzes", JSON.stringify(stored));
                 if (confirm('Successfully updated quiz')) {
                     window.location.reload();
